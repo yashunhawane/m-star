@@ -28,14 +28,15 @@ export const Hero = () => {
       
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60" />
       
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="space-y-8"
         >
           <HyperText
-            className="text-7xl md:text-8xl font-bold text-white mb-3 tracking-tighter"
+            className="text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter"
             duration={3500}
             delay={500}
             startOnView={true}
@@ -44,10 +45,10 @@ export const Hero = () => {
             PRASHANT JADHAV
           </HyperText>
           
-          <div className="h-24"> {/* Container for MorphingText */}
+          <div className="h-20 md:h-24 mb-4">
             <MorphingText 
               texts={titles}
-              className="text-gray-300 !text-2xl md:!text-3xl !font-light"
+              className="text-gray-300 !text-2xl md:!text-3xl lg:!text-4xl !font-semibold"
             />
           </div>
 
@@ -55,13 +56,13 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-6 justify-center mt-8"
+            className="flex gap-4 md:gap-6 justify-center mt-2 md:mt-4"
           >
-            <ShinyButton className="!rounded-full text-center">
+            <ShinyButton className="!rounded-full text-center px-6 md:px-8 py-2.5 md:py-3">
               View Work
             </ShinyButton>
             <PulsatingButton 
-              className="px-8 py-3 border border-white text-white font-medium rounded-full hover:bg-white/10 transition-colors bg-transparent"
+              className="px-6 md:px-8 py-2.5 md:py-3 border border-white text-white font-medium rounded-full hover:bg-white/10 transition-colors bg-transparent"
               pulseColor="rgba(255, 255, 255, 0.2)"
               duration="2s"
             >
@@ -73,14 +74,14 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-12 md:bottom-16 left-1/2 transform -translate-x-1/2"
           >
-            <div className="flex flex-col items-center text-white/70">
-              <span className="text-sm mb-2">Scroll to explore</span>
+            <div className="flex flex-col items-center text-white/70 space-y-3">
+              <span className="text-sm">Scroll to explore</span>
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-5 h-5 border-b-2 border-r-2 border-white/70 transform rotate-45"
+                className="w-4 h-4 border-b-2 border-r-2 border-white/70 transform rotate-45"
               />
             </div>
           </motion.div>
