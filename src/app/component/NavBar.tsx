@@ -78,7 +78,7 @@ const Navbar = () => {
               Services
             </Link>
             <Link
-              to="/our-work"
+              to="/work"
               className="block px-3 py-2 text-white hover:text-gray-300 hover:bg-gray-800/50 rounded-md"
             >
               Our Work
