@@ -10,12 +10,14 @@ const About = () => {
     <div className="relative bg-black text-white min-h-screen py-20">
       {/* Add AnimatedGridPattern */}
       <AnimatedGridPattern 
-        className="absolute inset-0 opacity-20"
-        width={32}
-        height={32}
+        className="absolute inset-0 opacity-50"
+        width={40}
+        height={40}
         strokeDasharray="4 4"
-        numSquares={35}
-        maxOpacity={0.3}
+        numSquares={50}
+        maxOpacity={0.6}
+        duration={2.5}
+        repeatDelay={0.2}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

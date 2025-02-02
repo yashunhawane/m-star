@@ -70,10 +70,16 @@ const BentoCard = ({
       )}
     >
       <Button variant="ghost" asChild size="sm" className="pointer-events-auto text-white hover:text-zinc-300">
-        <a href={href} className="scroll-smooth" onClick={(e) => {
-          e.preventDefault();
-          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-        }}>
+        <a 
+          href={href} 
+          className="scroll-smooth" 
+          onClick={(e) => {
+            if (href.startsWith('#')) {
+              e.preventDefault();
+              document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </a>

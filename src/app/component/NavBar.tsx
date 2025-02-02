@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../public/logo.png'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,20 +10,27 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center h-16 items-center">
+        <div className="flex justify-between h-24 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/">
+              <img src={logo.src} alt="Logo" className="h-20 w-auto object-contain" />
+            </Link>
+          </div>
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/about" className="text-white hover:text-gray-300 transition-colors">
               About
             </Link>
-            <Link to="/" className="text-white hover:text-gray-300 transition-colors">
+            <Link to="/services" className="text-white hover:text-gray-300 transition-colors">
               Services
             </Link>
             <Link to="/work" className="text-white hover:text-gray-300 transition-colors">
               Our Work
             </Link>
-            <Link to="/" className="text-white hover:text-gray-300 transition-colors">
-              Contact
+            <Link to="/blog" className="text-white hover:text-gray-300 transition-colors">
+            Blog
             </Link>
           </div>
 

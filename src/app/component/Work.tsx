@@ -1,6 +1,8 @@
 'use client'
 
 import React from 'react'
+import { Marquee } from '@/components/ui/marquee'
+import Image from 'next/image'
 
 const Work = () => {
   const videos = [
@@ -14,10 +16,42 @@ const Work = () => {
     { id: "GXruJbNjVp8", title: "Saari Raat Peg" }
   ];
 
+  const logos = [
+    "/logos/logo1.png",
+    "/logos/logo2.png",
+    "/logos/logo3.png",
+    "/logos/logo4.png",
+    "/logos/logo5.png",
+    "/logos/logo6.png",
+    "/logos/logo7.jpg",
+    "/logos/logo8.gif",
+    "/logos/logo9.png",
+    "/logos/logo10.png",
+    "/logos/logo11.jpg",
+    "/logos/logo12.png",
+    "/logos/logo13.jpg",
+    "/logos/logo14.png"
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-20">
+      <div className="py-12">
+        <Marquee className="py-4" pauseOnHover>
+          {logos.map((logo, index) => (
+            <div key={index} className="mx-8">
+              <Image
+                src={logo}
+                alt={`Partner logo ${index + 1}`}
+                width={150}
+                height={60}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-white">My Work</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (
             <div key={video.id} className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-700/50 hover:transform hover:scale-105 transition-all duration-300">
