@@ -1,7 +1,6 @@
 'use client'
 
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Hero } from './component/Hero'
 import BentoSection from './component/BentoSection'
 import About from './component/About'
@@ -11,9 +10,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Contact from './component/Contact'
 import Blog from './component/Blog'
 import Services from './component/Services'
+import dynamic from 'next/dynamic'
 
+function Page() {
+  useEffect(() => {
+    // Move any document-related code here
+    // This will only run in the browser
+  }, []);
 
-const page = () => {
   return (
     <Router>
       <Navbar />
@@ -34,4 +38,6 @@ const page = () => {
   );
 }
 
-export default page
+export default dynamic(() => Promise.resolve(Page), {
+  ssr: false // This component will only render on client-side
+})
