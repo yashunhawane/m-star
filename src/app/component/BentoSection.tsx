@@ -2,6 +2,7 @@
 import React from 'react'
 import { BentoGrid, BentoCard } from '@/components/ui/bento-grid'
 import { CodeIcon, PersonIcon, LayersIcon, RocketIcon } from '@radix-ui/react-icons'
+import Image from 'next/image'
 import image1 from "../../../public/coorimage1.jpeg"
 import studio from "../../../public/matar.jpeg"
 
@@ -9,6 +10,7 @@ const BentoSection = () => {
   return (
     <section className="w-full px-4 py-24 bg-gradient-to-b from-[#1a1a1a] via-black to-[#1a1a1a]">
       <BentoGrid className="max-w-6xl mx-auto">
+        
         {/* About Card */}
         <BentoCard
           name="The Studio"
@@ -16,10 +18,12 @@ const BentoSection = () => {
           className="col-span-1"
           background={
             <div className="absolute inset-0">
-              <img
-                src={studio.src}
+              <Image
+                src={studio}
                 alt="Studio Background"
-                className="object-contain w-full h-full opacity-40"
+                layout="fill"
+                objectFit="cover"
+                className="opacity-40"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-black opacity-70" />
             </div>
@@ -29,7 +33,6 @@ const BentoSection = () => {
           cta="Explore our studio"
         />
 
-
         {/* Studio Card */}
         <BentoCard
           name="About Us"
@@ -37,10 +40,12 @@ const BentoSection = () => {
           className="md:col-span-2"
           background={
             <div className="absolute inset-0">
-              <img
-                src={image1.src}
+              <Image
+                src={image1}
                 alt="About Us Background"
-                className="object-cover w-full h-full opacity-40"
+                layout="fill"
+                objectFit="cover"
+                className="opacity-40"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-black opacity-70" />
             </div>

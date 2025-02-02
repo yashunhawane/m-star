@@ -17,7 +17,7 @@ const About = () => {
         numSquares={50}
         maxOpacity={0.6}
         duration={2.5}
-        repeatDelay={0.2}
+        // repeatdelay={0.2}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

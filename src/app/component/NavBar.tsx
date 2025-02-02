@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../public/logo.png'
+import logo from '../../../public/logo.png';
+import Image from 'next/image';  // Import Image from Next.js
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <img src={logo.src} alt="Logo" className="h-20 w-auto object-contain" />
+              <Image src={logo} alt="Logo" className="h-20 w-auto object-contain" />
             </Link>
           </div>
 
@@ -30,7 +31,7 @@ const Navbar = () => {
               Our Work
             </Link>
             <Link to="/blog" className="text-white hover:text-gray-300 transition-colors">
-            Blog
+              Blog
             </Link>
           </div>
 

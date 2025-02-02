@@ -35,7 +35,7 @@ export function AnimatedGridPattern({
   className,
   maxOpacity = 0.5,
   duration = 2,
-  repeatDelay = 0.2,
+  // repeatDelay = 0.2,
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
