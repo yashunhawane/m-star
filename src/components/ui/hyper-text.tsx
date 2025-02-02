@@ -52,6 +52,7 @@ export function HyperText({
   const [isAnimating, setIsAnimating] = useState(false);
   const iterationCount = useRef(0);
   const elementRef = useRef<HTMLElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   const handleAnimationTrigger = () => {
     if (animateOnHover && !isAnimating) {
@@ -60,14 +61,13 @@ export function HyperText({
     }
   };
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Handle animation start based on view or delay
   useEffect(() => {
-    if (!startOnView) {
-      const startTimeout = setTimeout(() => {
-        setIsAnimating(true);
-      }, delay);
-      return () => clearTimeout(startTimeout);
-    }
+    if (!isMounted || !startOnView) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -86,7 +86,7 @@ export function HyperText({
     }
 
     return () => observer.disconnect();
-  }, [delay, startOnView]);
+  }, [delay, startOnView, isMounted]);
 
   // Handle scramble animation
   useEffect(() => {

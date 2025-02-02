@@ -1,5 +1,6 @@
+'use client'
 import React from 'react';
-import { VelocityScroll } from '@/components/ui/scroll-based-velocity';
+import { VelocityScroll } from '@/components/ui/velocity-scroll-wrapper';
 
 const productionHouses = [
   "Dharma Productions",

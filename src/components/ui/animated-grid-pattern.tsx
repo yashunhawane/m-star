@@ -40,6 +40,7 @@ export function AnimatedGridPattern({
 }: AnimatedGridPatternProps) {
   const id = useId();
   const containerRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   const getPos = useCallback(() => {
@@ -101,6 +102,16 @@ export function AnimatedGridPattern({
       }
     };
   }, []);
+
+  // Add useEffect to handle mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Modify the return statement to prevent rendering until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <svg

@@ -45,6 +45,7 @@ const Work = () => {
               width={150}
               height={60}
               className="object-contain"
+              unoptimized={logo.endsWith('.gif')}
             />
           </div>
         ))}

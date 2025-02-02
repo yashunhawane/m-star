@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,48 +25,43 @@ export function MagicCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setIsMounted(true);
+  }, []);
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
-      if (cardRef.current) {
-        const { left, top } = cardRef.current.getBoundingClientRect();
-        const clientX = e.clientX;
-        const clientY = e.clientY;
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-      }
+      if (!isMounted || !cardRef.current) return;
+      const { left, top } = cardRef.current.getBoundingClientRect();
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      mouseX.set(clientX - left);
+      mouseY.set(clientY - top);
     },
-    [mouseX, mouseY],
+    [mouseX, mouseY, isMounted],
   );
 
-  const handleMouseOut = useCallback(
-    (e: MouseEvent) => {
+  useEffect(() => {
+    if (typeof window === 'undefined' || !isMounted) return;
+
+    const handleMouseOut = (e: MouseEvent) => {
       if (!e.relatedTarget) {
-        document.removeEventListener("mousemove", handleMouseMove);
         mouseX.set(-gradientSize);
         mouseY.set(-gradientSize);
       }
-    },
-    [handleMouseMove, mouseX, gradientSize, mouseY],
-  );
+    };
 
-  const handleMouseEnter = useCallback(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    mouseX.set(-gradientSize);
-    mouseY.set(-gradientSize);
-  }, [handleMouseMove, mouseX, gradientSize, mouseY]);
-
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseout", handleMouseOut);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseOut);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseout", handleMouseOut);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseOut);
     };
-  }, [handleMouseEnter, handleMouseMove, handleMouseOut]);
+  }, [handleMouseMove, isMounted, mouseX, mouseY, gradientSize]);
 
   useEffect(() => {
     mouseX.set(-gradientSize);
