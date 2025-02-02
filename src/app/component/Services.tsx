@@ -45,7 +45,9 @@ const Services = () => {
               <div className="text-4xl mb-4">🎉</div>
               <h3 className="text-2xl font-bold mb-4">Social Events</h3>
               <h4 className="text-xl text-gray-300 mb-4">Make Every Gathering Unforgettable</h4>
-              <p className="text-gray-400 mb-6">Whether it's a corporate party, community meetup, or private celebration, we create seamless and memorable experiences.</p>
+              <p className="text-gray-400 mb-6">
+  Whether it&apos;s a corporate party, community meetup, or private celebration, we create seamless and memorable experiences.
+</p>
               <div className="space-y-2">
                 <h5 className="text-lg font-semibold mb-2">🥂 Why Choose Us?</h5>
                 <p className="text-gray-300">✔ Personalized event planning</p>

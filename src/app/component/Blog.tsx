@@ -34,9 +34,10 @@ const Blog = () => {
               The Connection Between Dance and the Film Industry
             </h2>
             <p className="text-gray-300">
-              Bollywood and dance are deeply intertwined. From Ajay Devgn's films to Shraddha Kapoor's dance moves, 
-              every artist strives to perfect their performance, often feeling the pressure to excel.
-            </p>
+  Bollywood and dance are deeply intertwined. From Ajay Devgn&apos;s films to Shraddha Kapoor&apos;s dance moves, 
+  every artist strives to perfect their performance, often feeling the pressure to excel.
+</p>
+
           </div>
 
           <div className="border border-white/10 bg-white/5 rounded-xl p-6 mb-8 backdrop-blur-sm">
